@@ -1,0 +1,258 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://schemas.cordys.com/MyPackage" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:cordys="http://schemas.cordys.com/General/1.0/" name="IshuAssignmentWebServce" targetNamespace="http://schemas.cordys.com/MyPackage">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns:tns="http://schemas.cordys.com/MyPackage" xmlns:wcp="http://schemas.cordys.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.cordys.com/MyPackage">
+      <xsd:import namespace="http://schemas.cordys.com/General/1.0/" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wcp="http://schemas.cordys.com/" xmlns:tns="http://schemas.cordys.com/MyPackage" xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns="" name="GetMaximumValue">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="testString" type="xsd:string" />
+          </xsd:sequence>
+          <xsd:attributeGroup ref="tns:GetMethodAttributes" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wcp="http://schemas.cordys.com/" xmlns:tns="http://schemas.cordys.com/MyPackage" xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns="" name="GetMaximumValueResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="tuple">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="old">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="getMaximumValue">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="getMaximumValue" type="xsd:string" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:values" />
+                </xsd:sequence>
+                <xsd:attributeGroup ref="tns:tupleAttributes" />
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attributeGroup ref="tns:GetMethodAttributes" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns="" targetNamespace="http://schemas.cordys.com/General/1.0/" elementFormDefault="qualified">
+      <xsd:element xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="FaultDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="cordys:LocalizableMessage" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="FaultRelatedException" type="xsd:string" />
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns="" targetNamespace="http://schemas.cordys.com/General/1.0/" elementFormDefault="qualified">
+      <xsd:element xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="LocalizableMessage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="MessageCode" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Insertion" type="cordys:NestedMessage" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType xmlns:cordys="http://schemas.cordys.com/General/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="NestedMessage" mixed="true">
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="LocalizableMessage">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="MessageCode" type="xsd:string" />
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Insertion" type="cordys:NestedMessage" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.cordys.com/MyPackage">
+      <xsd:import namespace="http://schemas.cordys.com/General/ClientAttributes/" />
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="UpdateMethodAttributes">
+        <xsd:attribute default="yes" name="reply">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="yes" />
+              <xsd:enumeration value="no" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="no" name="commandUpdate">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="yes" />
+              <xsd:enumeration value="no" />
+              <xsd:enumeration value="true" />
+              <xsd:enumeration value="false" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="no" name="preserveSpace">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="yes" />
+              <xsd:enumeration value="no" />
+              <xsd:enumeration value="true" />
+              <xsd:enumeration value="false" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="no" name="batchUpdate">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="yes" />
+              <xsd:enumeration value="no" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:anyAttribute namespace="http://schemas.cordys.com/General/ClientAttributes/" processContents="strict" />
+      </xsd:attributeGroup>
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="tupleAttributes">
+        <xsd:anyAttribute namespace="http://schemas.cordys.com/General/ClientAttributes/" processContents="strict" />
+      </xsd:attributeGroup>
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="seqId" type="xsd:int" />
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="oldObjectAttributes">
+        <xsd:attribute default="0" name="qConstraint">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="0" />
+              <xsd:enumeration value="1" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:attributeGroup>
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="nestedObjectAttributes">
+        <xsd:anyAttribute namespace="##targetNamespace" processContents="strict" />
+      </xsd:attributeGroup>
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="newObjectAttributes">
+        <xsd:attribute default="0" name="qAccess">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="0" />
+              <xsd:enumeration value="1" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="0" name="qConstraint">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="0" />
+              <xsd:enumeration value="1" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="0" name="qInit">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="0" />
+              <xsd:enumeration value="1" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="" name="qValues" type="xsd:string" use="optional" />
+      </xsd:attributeGroup>
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="GetMethodAttributes">
+        <xsd:attribute default="no" name="preserveSpace">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="yes" />
+              <xsd:enumeration value="no" />
+              <xsd:enumeration value="true" />
+              <xsd:enumeration value="false" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="0" name="qAccess">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="0" />
+              <xsd:enumeration value="1" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="" name="qValues" type="xsd:string" use="optional" />
+        <xsd:anyAttribute namespace="http://schemas.cordys.com/General/ClientAttributes/" processContents="strict" />
+      </xsd:attributeGroup>
+      <xsd:attributeGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="elementAttributes">
+        <xsd:anyAttribute namespace="##any" processContents="skip" />
+      </xsd:attributeGroup>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="values">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" />
+                  <xsd:element maxOccurs="1" minOccurs="1" name="value" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="valuesID" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="cursor">
+        <xsd:complexType>
+          <xsd:attribute default="0" name="id" type="xsd:string" />
+          <xsd:attribute default="0" name="position" type="xsd:integer" />
+          <xsd:attribute default="5" name="numRows" type="xsd:integer" />
+          <xsd:attribute default="99999" name="maxRows" type="xsd:integer" />
+          <xsd:attribute default="false" name="sameConnection" type="xsd:boolean" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" targetNamespace="http://schemas.cordys.com/General/ClientAttributes/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="sync_id" type="xsd:string" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="current_model" type="xsd:string" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="reorder" type="xsd:boolean" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="related" type="xsd:string" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="selected" type="xsd:boolean" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="activebusinessobject" type="xsd:boolean" />
+      <xsd:attribute xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" name="delete" type="xsd:boolean" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMaximumValueInput">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="body" element="tns:GetMaximumValue" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMaximumValueOutput">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="body" element="tns:GetMaximumValueResponse" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMaximumValueFaultDetail">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="FaultDetail" element="cordys:FaultDetails" />
+  </wsdl:message>
+  <wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IshuAssignmentWebServiceInterface">
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMaximumValue">
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:GetMaximumValueInput" />
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:GetMaximumValueOutput" />
+      <wsdl:fault xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="FaultDetail" message="tns:GetMaximumValueFaultDetail" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IshuAssignmentWebServiceInterface" type="tns:IshuAssignmentWebServiceInterface">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetMaximumValue">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="" style="document" />
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:input>
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:output>
+      <wsdl:fault xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="FaultDetail">
+        <soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="FaultDetail" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IshuAssignmentWebServiceInterfaceService">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IshuAssignmentWebServiceInterface" binding="tns:IshuAssignmentWebServiceInterface">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IshuAssignmentWebServiceInterfacePort" binding="tns:IshuAssignmentWebServiceInterface">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
